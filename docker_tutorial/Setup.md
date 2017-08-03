@@ -1,3 +1,4 @@
+#https://docs.docker.com/get-started/
 # Initialize Host
 Install Virtual box
 docker rm $(docker ps -a -q)           # Remove all containers from this machine
@@ -39,7 +40,7 @@ docker-machine ssh myvm1 "docker stack deploy -c docker-compose.yml getstartedla
 docker-machine ls
 http://<myvm1 IP>:8080/
 
-# Full Stack
+# Full Stack Init (1 by 1)
 docker-machine create --driver virtualbox myvm1
 docker-machine create --driver virtualbox myvm2
 docker-machine ls
@@ -48,6 +49,8 @@ docker-machine ssh myvm1 "docker swarm init --advertise-addr 192.168.99.100:2377
 docker-machine ssh myvm1 "docker swarm join-token"
 #docker-machine ssh myvm2 "<docker swarm join-token>"
 docker-machine ssh myvm2 ""
+
+# Full Stack 
 docker-machine ssh myvm1 "mkdir ./data"
 docker build -t friendlyhello .
 rm /tmp/friendlyhello.img
@@ -63,7 +66,7 @@ http://192.168.99.100/
 http://192.168.99.101/
 docker-machine ssh myvm1 "docker stack ps getstartedlab"
 
-# Cleanup
+# Cleanup (1 by 1)
 docker-machine ls -q
 docker-machine stop $(docker-machine ls -q)               # Stop all running VMs
 docker-machine rm $(docker-machine ls -q) # Delete all VMs and their disk images
