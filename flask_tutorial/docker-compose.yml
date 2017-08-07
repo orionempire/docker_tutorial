@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     # replace username/repo:tag with your name and image details
-    image: orionempire/python_app_web:latest
+    image: python_app_web
     deploy:
       replicas: 1
       resources:
@@ -12,7 +12,7 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "80:80"
+      - "4000:80"
     networks:
       - webnet
   visualizer:

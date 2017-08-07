@@ -1,3 +1,4 @@
+# Setup Development Host
 sudo easy_install pip
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper --ignore-installed six
@@ -8,5 +9,9 @@ source ~/.bash_profile
 mkdir -p $WORKON_HOME
 mkvirtualenv default
 sudo easy_install pip
-pip install --upgrade pip
-ssh-keygen
+deactivate
+
+# Setup Project 
+mkvirtualenv docker_tutorial
+pip install flask
+# File -> Default Settings -> Project Interpreter  /Users/<NAME>/.virtualenvs/docker_tutorial/bin/python
