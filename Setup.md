@@ -14,4 +14,5 @@ deactivate
 # Setup Project 
 mkvirtualenv docker_tutorial
 pip install flask
+pip install flask-mysql
 # File -> Default Settings -> Project Interpreter  /Users/<NAME>/.virtualenvs/docker_tutorial/bin/python

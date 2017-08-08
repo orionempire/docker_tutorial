@@ -73,3 +73,7 @@ docker-machine rm $(docker-machine ls -q) # Delete all VMs and their disk images
 docker rm $(docker ps -a -q)           # Remove all containers from this machine
 docker rmi $(docker images -q)             # Remove all images from this machine
 
+
+
+# Useful Diagnostics
+docker exec -i -t <ID> /bin/bash
