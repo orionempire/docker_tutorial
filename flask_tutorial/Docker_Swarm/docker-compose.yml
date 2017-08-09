@@ -1,14 +1,30 @@
 version: "3"
 services:
-
+  web:
+    # replace username/repo:tag with your name and image details
+    image: python_app_web
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "5002:5002"
+    networks:
+      - webnet
   database:
     image: mysql:5.7
-    ports:
-      - "3306:3306"
+    #ports:
+      #- "3306:3306"
     environment:
         MYSQL_ROOT_PASSWORD: hello123
     volumes:
-      - ./database_config:/docker-entrypoint-initdb.
+      - ./database_config:/docker-entrypoint-initdb.d
+    networks:
+      - webnet
 
   visualizer:
     image: dockersamples/visualizer:stable
