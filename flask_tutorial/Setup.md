@@ -20,8 +20,10 @@ docker run -p 80:80 python_app_web
 printf "image ->"; read the_image; docker logs `docker ps|grep $the_image|cut -d' ' -f1`;unset the_image
 printf "image ->"; read the_image; docker exec -i -t `docker ps|grep $the_image|cut -d' ' -f1` /bin/bash;unset the_image
 docker logs `docker ps|grep python_app_web|cut -d' ' -f1`
-docker logs `docker ps|grep python_app_web|cut -d' ' -f1`
-
+docker exec -i -t `docker ps|grep fat_debug|cut -d' ' -f1` /bin/bash
 curl http://localhost:5002/
 docker stop <CONTAINER ID >  
  
+ 
+ 
+docker build -t fat_debug .

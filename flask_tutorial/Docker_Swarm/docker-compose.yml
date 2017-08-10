@@ -25,7 +25,6 @@ services:
       - ./database_config:/docker-entrypoint-initdb.d
     networks:
       - webnet
-
   visualizer:
     image: dockersamples/visualizer:stable
     ports:
@@ -35,6 +34,11 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+    networks:
+      - webnet
+  fatdebug:
+    image: fat_debug
+    #privileged: true
     networks:
       - webnet
 networks:
