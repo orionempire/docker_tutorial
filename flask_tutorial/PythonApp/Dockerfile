@@ -17,4 +17,4 @@ EXPOSE 5002
 ENV NAME PythonApp
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD ["python", "app.py"]t
