@@ -1,4 +1,6 @@
 #https://code.tutsplus.com/series/creating-a-web-app-from-scratch-using-python-flask-and-mysql--cms-827
+pip install flask
+pip install flask-mysql
 
 ## Build webserver with app
 docker build -t python_app_web ./PythonApp
@@ -6,7 +8,7 @@ docker build -t fat_debug ./Fat_Debug
       
 ## Build swarm
 # docker swarm init
-d    
+docker stack deploy -c Docker_Swarm/docker-compose.yml PythonApp
     
 ## Tear down
 docker stack rm PythonApp
